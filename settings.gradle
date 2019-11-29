@@ -1,0 +1,2 @@
+include ':app',':avoiddoubleclick'
+rootProject.name='My Application'

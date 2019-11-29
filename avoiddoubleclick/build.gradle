@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+//group和version在后面使用自定义插件的时候会用到
+//group和version在后面使用自定义插件的时候会用到
+group='com.hc.plugin'
+version='1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //提交到远程服务器：
+            // repository(url: "http://www.xxx.com/repos") {
+            //    authentication(userName: "admin", password: "admin")
+            // }
+            //本地的Maven地址设置为:
+            repository(url: uri('/Users/ymt/repos'))
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    //gradle sdk
+    compile gradleApi()
+    //groovy sdk
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:3.5.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'org.ow2.asm:asm-all:5.1'
+}
